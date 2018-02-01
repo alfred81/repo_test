@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<user>
+  <user-details>
+    <name>John</name>
+    <email>john@hotmail.com</email>
+  </user-details>
+  <user-items>
+    <item type="bag"/>
+    <item type="phone">
+    	<manufacter> Apple</manufacter>
+    </item>
+  </user-items>
+</user>

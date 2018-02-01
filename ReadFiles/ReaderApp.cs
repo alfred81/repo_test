@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ReadFiles
@@ -16,7 +17,8 @@ namespace ReadFiles
         private void button1_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            dialog.Filter = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 _path = dialog.FileName;
@@ -30,7 +32,8 @@ namespace ReadFiles
         {
             try
             {
-                textBox2.Text = _readService.ReadTextFile(path);
+                var filetype = Path.GetExtension(_path).TrimStart('.');
+                textBox2.Text = _readService.ReadFile(path, filetype);
             }
             catch (Exception exception)
             {
