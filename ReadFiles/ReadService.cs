@@ -25,24 +25,15 @@ namespace ReadFiles
             }
         }
 
+        public string ReadEncryptedFile(string path, string fileType)
+        {
+            var fileContent = ReadFile(path, fileType);
+            return CryptoManager.Decrypt(fileContent);
+        }
+
         public string ReadXmlFile(string path)
         {
             return File.ReadAllText(path);
-        }
-
-        public string ReadEncryptedTextFile(string path)
-        {
-            var decodedText = ReadTextFile(path);
-            return CryptoManager.Decrypt(decodedText);
-            //var decodedWords = decodedText.Split(new[] {" ", "\r\n"}, StringSplitOptions.RemoveEmptyEntries);
-            //var stringBuilder = new StringBuilder();
-            //foreach (var word in decodedWords)
-            //{
-            //    stringBuilder.Append($"{word.Reverse()} ");
-            //}
-
-            //var encodedText = stringBuilder.ToString();
-            //return string.Join(string.Empty, encodedText);
         }
     }
 }
