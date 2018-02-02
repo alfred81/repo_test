@@ -93,11 +93,6 @@ namespace ReadFiles
                 return true;
             }
 
-            var filetype = Path.GetExtension(path)?.TrimStart('.');
-            if (filetype?.ToLower() == ".json")
-            {
-                return true;
-            }
             var fileName = Path.GetFileName(path);
             if (_selectedRole != "Admin")
             {

@@ -1,0 +1,9 @@
+{
+  "cardType": "Visa Gold",
+  "cardHolder": "JOHN SMITH",
+  "cardNumber": "9896-0000-1234-5555",
+  "expired": {
+    "month": 12,
+    "year": 2020
+  }
+}
