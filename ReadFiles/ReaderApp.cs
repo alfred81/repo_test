@@ -32,8 +32,9 @@ namespace ReadFiles
         {
             try
             {
-                var filetype = Path.GetExtension(_path).TrimStart('.');
-                textBox2.Text = _readService.ReadFile(path, filetype);
+                var filetype = Path.GetExtension(_path)?.TrimStart('.');
+                
+                textBox2.Text = isEncrypted.Checked? _readService.ReadEncryptedTextFile(path): _readService.ReadFile(path, filetype);
             }
             catch (Exception exception)
             {

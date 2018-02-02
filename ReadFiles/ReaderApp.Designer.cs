@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.isEncrypted = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -59,15 +60,26 @@
             this.textBox2.Size = new System.Drawing.Size(849, 423);
             this.textBox2.TabIndex = 2;
             // 
-            // Form1
+            // isEncrypted
+            // 
+            this.isEncrypted.AutoSize = true;
+            this.isEncrypted.Location = new System.Drawing.Point(75, 98);
+            this.isEncrypted.Name = "isEncrypted";
+            this.isEncrypted.Size = new System.Drawing.Size(90, 17);
+            this.isEncrypted.TabIndex = 3;
+            this.isEncrypted.Text = "EncryptedFile";
+            this.isEncrypted.UseVisualStyleBackColor = true;
+            // 
+            // ReaderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 601);
+            this.Controls.Add(this.isEncrypted);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "ReaderApp";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -79,6 +91,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox isEncrypted;
     }
 }
 
