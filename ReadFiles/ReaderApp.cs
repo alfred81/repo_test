@@ -8,16 +8,20 @@ namespace ReadFiles
     {
         private readonly ReadService _readService = new ReadService();
         private string _path;
+        private string _selectedRole;
+        private string _availableSources = "txt files (*.txt)|*.txt";
         public ReaderApp()
         {
             InitializeComponent();
+            roleBox.Items.AddRange(new object[] {"User", "Admin" });
+            roleBox.SelectedItem = roleBox.Items[0];
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            dialog.Filter = _availableSources;
             
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -41,6 +45,32 @@ namespace ReadFiles
                 MessageBox.Show($"Error occured while reading file.Additional info {exception.Message}");
             }
 
+        }
+
+        private void RoleChanged(object sender, EventArgs e)
+        {
+            _selectedRole = roleBox.SelectedItem.ToString();
+            // Admin can see any files, user only txt
+            // Just as an example
+            switch (_selectedRole)
+            {
+                case "User": SetUserResources();
+                    break;
+                case "Admin":SetAdminResources();
+                    break;
+
+            }
+        }
+
+        private void SetAdminResources()
+        {
+            _availableSources = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|All files (*.*)|*.*";
+        }
+
+        private void SetUserResources()
+        {
+            _availableSources = "txt files(*.txt)| *.txt";
+            
         }
     }
 }

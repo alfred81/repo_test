@@ -32,6 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.isEncrypted = new System.Windows.Forms.CheckBox();
+            this.roleBox = new System.Windows.Forms.ComboBox();
+            this.roleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -70,11 +72,31 @@
             this.isEncrypted.Text = "EncryptedFile";
             this.isEncrypted.UseVisualStyleBackColor = true;
             // 
+            // roleBox
+            // 
+            this.roleBox.FormattingEnabled = true;
+            this.roleBox.Location = new System.Drawing.Point(236, 98);
+            this.roleBox.Name = "roleBox";
+            this.roleBox.Size = new System.Drawing.Size(121, 21);
+            this.roleBox.TabIndex = 4;
+            this.roleBox.SelectedIndexChanged += new System.EventHandler(this.RoleChanged);
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Location = new System.Drawing.Point(422, 105);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(61, 13);
+            this.roleLabel.TabIndex = 5;
+            this.roleLabel.Text = "Current role";
+            // 
             // ReaderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 601);
+            this.Controls.Add(this.roleLabel);
+            this.Controls.Add(this.roleBox);
             this.Controls.Add(this.isEncrypted);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -92,6 +114,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.CheckBox isEncrypted;
+        private System.Windows.Forms.ComboBox roleBox;
+        private System.Windows.Forms.Label roleLabel;
     }
 }
 
