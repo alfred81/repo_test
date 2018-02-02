@@ -34,6 +34,7 @@
             this.isEncrypted = new System.Windows.Forms.CheckBox();
             this.roleBox = new System.Windows.Forms.ComboBox();
             this.roleLabel = new System.Windows.Forms.Label();
+            this.enableSecurity = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -44,7 +45,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Select File";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.OpenFile);
             // 
             // textBox1
             // 
@@ -90,11 +91,22 @@
             this.roleLabel.TabIndex = 5;
             this.roleLabel.Text = "Current role";
             // 
+            // enableSecurity
+            // 
+            this.enableSecurity.AutoSize = true;
+            this.enableSecurity.Location = new System.Drawing.Point(574, 98);
+            this.enableSecurity.Name = "enableSecurity";
+            this.enableSecurity.Size = new System.Drawing.Size(100, 17);
+            this.enableSecurity.TabIndex = 6;
+            this.enableSecurity.Text = "Enable Security";
+            this.enableSecurity.UseVisualStyleBackColor = true;
+            // 
             // ReaderApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 601);
+            this.Controls.Add(this.enableSecurity);
             this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.roleBox);
             this.Controls.Add(this.isEncrypted);
@@ -116,6 +128,7 @@
         private System.Windows.Forms.CheckBox isEncrypted;
         private System.Windows.Forms.ComboBox roleBox;
         private System.Windows.Forms.Label roleLabel;
+        private System.Windows.Forms.CheckBox enableSecurity;
     }
 }
 

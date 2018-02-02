@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<financial-info>
+  <bank-details>
+    <name>Barklays</name>
+    <email>Barklays@hotmail.com</email>
+  </bank-details>
+  <clients>
+    <client type="Corporation"/>
+    <client type="Ltd">
+    	<private-number>IBAN123456789</manufacter>
+    </client>
+  </clients>
+</financial-info>

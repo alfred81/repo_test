@@ -35,5 +35,6 @@ namespace ReadFiles
         {
             return File.ReadAllText(path);
         }
+
     }
 }

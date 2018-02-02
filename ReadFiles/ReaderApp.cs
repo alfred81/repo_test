@@ -18,18 +18,31 @@ namespace ReadFiles
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OpenFile(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
             dialog.Filter = _availableSources;
-            
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                _path = dialog.FileName;
-                ReadFile(_path);
 
-                textBox1.Text = _path;
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
             }
+
+            _path = dialog.FileName;
+
+            if (HasPermission(_path))
+            {
+                ReadFile(_path);
+            }
+            else
+            {
+                MessageBox.Show("You're not authorized to see this file content.");
+            }
+            
+
+
+            textBox1.Text = _path;
+ 
         }
 
         private void ReadFile(string path)
@@ -71,6 +84,22 @@ namespace ReadFiles
         {
             _availableSources = "txt files(*.txt)| *.txt";
             
+        }
+
+        public bool HasPermission(string path)
+        {
+            if (!enableSecurity.Checked)
+            {
+                return true;
+            }
+
+            var fileName = Path.GetFileName(path);
+            if (_selectedRole != "Admin")
+            {
+                return fileName != null && !fileName.StartsWith("secured");
+            }
+
+            return true;
         }
     }
 }
