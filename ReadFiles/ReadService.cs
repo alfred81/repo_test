@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace ReadFiles
 {
@@ -14,13 +12,15 @@ namespace ReadFiles
 
         public string ReadFile(string path, string fileType)
         {
-            switch (fileType)
+            switch (fileType.ToLower())
             {
                 case "txt":
                     return ReadTextFile(path);
                 case "xml":
                     return ReadXmlFile(path);
-                    default:
+                case "json":
+                    return ReadJSONFile(path);
+                default:
                         throw new NotSupportedException($"{fileType}");
             }
         }
@@ -32,6 +32,11 @@ namespace ReadFiles
         }
 
         public string ReadXmlFile(string path)
+        {
+            return File.ReadAllText(path);
+        }
+
+        public string ReadJSONFile(string path)
         {
             return File.ReadAllText(path);
         }

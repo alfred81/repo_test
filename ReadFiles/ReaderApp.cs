@@ -77,12 +77,12 @@ namespace ReadFiles
 
         private void SetAdminResources()
         {
-            _availableSources = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            _availableSources = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|JSON  files (*.json)|*.json|All files (*.*)|*.*";
         }
 
         private void SetUserResources()
         {
-            _availableSources = "txt files(*.txt)| *.txt";
+            _availableSources = "txt files (*.txt)|*.txt|Xml files (*.xml)|*.xml|JSON  files (*.json)|*.json";
             
         }
 
@@ -93,6 +93,11 @@ namespace ReadFiles
                 return true;
             }
 
+            var filetype = Path.GetExtension(path)?.TrimStart('.');
+            if (filetype?.ToLower() == ".json")
+            {
+                return true;
+            }
             var fileName = Path.GetFileName(path);
             if (_selectedRole != "Admin")
             {

@@ -1,0 +1,9 @@
+{
+  "name": "Adam",
+  "email": "smith@hotmail.com",
+  "address": {
+    "city": "London",
+    "country": "UK",
+    "postCode": "123123123",
+    "street": "baker street"
+}
